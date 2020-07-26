@@ -1,0 +1,19 @@
+centos7 iso 下载：
+http://mirrors.aliyun.com/centos/7/isos/x86_64/
+
+virtualbox 下载：
+https://www.virtualbox.org/wiki/Downloads
+
+安装方法直接百度，很多教程，安装过程并不难，难的是遇到系统问题，
+例如我在安装的时候，就一直不成功，每次安装一半，还没进到选择语言的界面就卡住，搜索了老半天，最后发现，（很烦的问题，浪费了我不少时间）
+原来是我的win10开启了hyper-v。
+因为电脑上之前安装了docker，需要用到hyper-v，所以开启了，结果导致virtualbox安装centos7总是失败，
+用以下指令，在powershell中关闭hyper-v后，重启电脑，再打开virtualbox安装centos7，成功。
+关闭hyper-v：
+ bcdedit /set hypervisorlaunchtype off
+开启hyper-v：
+ bcdedit /set hypervisorlaunchtype auto
+ 
+ 但是关闭hyper-v后，打开docker会失败，提示没有开启hyper-v，没办法，只能需要用到docker的时候，再开启hyper-v，然后重启电脑，不用docker了再关闭hyper-v。
+ 
+ 
